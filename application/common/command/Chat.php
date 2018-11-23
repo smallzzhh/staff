@@ -79,6 +79,9 @@ class Chat extends Command
                 $res = $this->socketModel->insert($info);  //绑定fd
                 if ($res) {
                     $data = $this->messageModel->loadMessage($pData->send_id, $pData->receive_id); //加载历史记录
+
+                    //echo $this->messageModel->getLastSql();
+
                 } else {
                     $data = array("content" => "无法绑定fd");
                 }

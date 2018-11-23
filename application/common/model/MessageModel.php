@@ -41,7 +41,7 @@ class MessageModel extends BaseModel
         try{
             $and = $id ? " and id=$id" : '';
             $where = "(send_uid=$send_id and rece_uid = $receive_id) or (rece_uid=$send_id and send_uid = $receive_id)".$and;
-            $list = $this->where($where)->page(1,5)->order('id desc')->select();
+            $list = $this->where($where)->page(1,20)->order('id asc')->select();
         }catch (Exception $exception){
             return false;
         }
