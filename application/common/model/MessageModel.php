@@ -42,6 +42,11 @@ class MessageModel extends BaseModel
             $and = $id ? " and id=$id" : '';
             $where = "(send_uid=$send_id and rece_uid = $receive_id) or (rece_uid=$send_id and send_uid = $receive_id)".$and;
             $list = $this->where($where)->page(1,10)->order('id desc')->select();
+            $count = count($list)-1;
+            foreach ($list as $k=>$v){
+                $list[$k] = $v;
+                $count --;
+            }
         }catch (Exception $exception){
             return false;
         }
