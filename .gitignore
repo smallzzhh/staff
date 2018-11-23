@@ -2,3 +2,4 @@
 .idea
 thinkphp
 runtime
+config/database.php
