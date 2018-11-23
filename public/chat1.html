@@ -16,98 +16,8 @@
     </a>
     <div class="aui-title">聊天界面</div>
 </header>
-<section class="aui-chat">
+<section class="aui-chat" style="padding: 3rem 0;overflow: hidden;">
     <!--<div class="aui-chat-header">2016年7月13日</div>-->
-    <!--<div class="aui-chat-item aui-chat-left">
-        <div class="aui-chat-media">
-            <img src="./Aui/image/demo2.png" />
-        </div>
-        <div class="aui-chat-inner">
-            <div class="aui-chat-name">AUI <span class="aui-label aui-label-warning">2.0</span></div>
-            <div class="aui-chat-content">
-                <div class="aui-chat-arrow"></div>
-                Hello AUI 2.0!
-            </div>
-            <div class="aui-chat-status aui-chat-status-refresh">
-                <i class="aui-iconfont aui-icon-correct aui-text-success"></i>
-            </div>
-        </div>
-    </div>
-    <div class="aui-chat-item aui-chat-right">
-        <div class="aui-chat-media">
-            <img src="./Aui/image/liulangnan.png" />
-        </div>
-        <div class="aui-chat-inner">
-            <div class="aui-chat-name">流浪男</div>
-            <div class="aui-chat-content">
-                <div class="aui-chat-arrow"></div>
-                你好！
-            </div>
-            <div class="aui-chat-status">
-                <i class="aui-iconfont aui-icon-info aui-text-danger"></i>
-            </div>
-        </div>
-    </div>
-    <div class="aui-chat-item aui-chat-left">
-        <div class="aui-chat-media">
-            <img src="./Aui/image/demo2.png" />
-        </div>
-        <div class="aui-chat-inner">
-            <div class="aui-chat-name">AUI <span class="aui-label aui-label-warning">2.0</span></div>
-            <div class="aui-chat-content">
-                <div class="aui-chat-arrow"></div>
-                <img src="./Aui/image/l1.png" />
-            </div>
-        </div>
-    </div>
-    <div class="aui-chat-item aui-chat-right">
-        <div class="aui-chat-media">
-            <img src="./Aui/image/liulangnan.png" />
-        </div>
-        <div class="aui-chat-inner">
-            <div class="aui-chat-name">流浪男</div>
-            <div class="aui-chat-content">
-                <div class="aui-chat-arrow"></div>
-                以前拍摄的牛背山星空以前拍摄的牛背山星空以前拍摄的牛背山星空以前拍摄的牛背山星空以前拍摄的牛背山星空以前拍摄的牛背山星空
-            </div>
-        </div>
-    </div>
-    <div class="aui-chat-item aui-chat-left">
-        <div class="aui-chat-media">
-            <img src="./Aui/image/demo2.png" />
-        </div>
-        <div class="aui-chat-inner">
-            <div class="aui-chat-name">AUI <span class="aui-label aui-label-warning">2.0</span></div>
-            <div class="aui-chat-content">
-                <div class="aui-chat-arrow"></div>
-                <img src="./Aui/image/l2.png" />
-            </div>
-        </div>
-    </div>
-    <div class="aui-chat-item aui-chat-left">
-        <div class="aui-chat-media">
-            <img src="./Aui/image/demo2.png" />
-        </div>
-        <div class="aui-chat-inner">
-            <div class="aui-chat-name">AUI <span class="aui-label aui-label-warning">2.0</span></div>
-            <div class="aui-chat-content">
-                <div class="aui-chat-arrow"></div>
-                <img src="./Aui/image/l2.png" />
-            </div>
-        </div>
-    </div>
-    <div class="aui-chat-item aui-chat-left">
-        <div class="aui-chat-media">
-            <img src="./Aui/image/demo2.png" />
-        </div>
-        <div class="aui-chat-inner">
-            <div class="aui-chat-name">AUI <span class="aui-label aui-label-warning">2.0</span></div>
-            <div class="aui-chat-content">
-                <div class="aui-chat-arrow"></div>
-                <img src="./Aui/image/l2.png" />
-            </div>
-        </div>
-    </div>-->
 
 </section>
 <footer class="aui-bar aui-bar-tab" id="footer">
@@ -123,6 +33,7 @@
 </body>
 <script type="text/javascript" src="./Aui/script/api.js" ></script>
 <script type="text/javascript">
+
     var send_name = '大傻逼';
     var receive_name = '周政';
     var send_img = './Aui/image/demo2.png';
@@ -155,6 +66,7 @@
         $(".aui-chat").append(html);
 
         $('#message').val('');
+        $('html,body').animate({scrollTop:$('#footer').offset().top - -1000 }, 1000);
     }
     function initData() {
         var pData = {
@@ -178,6 +90,7 @@
             var html = '<div class="aui-chat-item '+css+'"><div class="aui-chat-media"><img src="'+img+'" /></div><div class="aui-chat-inner"><div class="aui-chat-name">'+name+'</div><div class="aui-chat-content"><div class="aui-chat-arrow"></div>' + data[i].message + '</div></div></div>';
             $(".aui-chat").append(html);
         }
+        $('html,body').animate({scrollTop:$('#footer').offset().top - -1000 }, 1000);
     }
     function closes() {
         exampleSocket.close();
