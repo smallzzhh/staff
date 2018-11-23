@@ -163,11 +163,13 @@
             if(data[i].send_uid == send_id){
                 var css = 'aui-chat-left';
                 var name = send_name;
+                var img = './Aui/image/demo2.png';
             }else{
                 var css = 'aui-chat-right';
                 var name = receive_name;
+                var img = './Aui/image/liulangnan.png';
             }
-            var html = '<div class="aui-chat-item '+css+'"><div class="aui-chat-media"><img src="./Aui/image/liulangnan.png" /></div><div class="aui-chat-inner"><div class="aui-chat-name">'+name+'</div><div class="aui-chat-content"><div class="aui-chat-arrow"></div>' + data[i].message + '</div></div></div>';
+            var html = '<div class="aui-chat-item '+css+'"><div class="aui-chat-media"><img src="'+img+'" /></div><div class="aui-chat-inner"><div class="aui-chat-name">'+name+'</div><div class="aui-chat-content"><div class="aui-chat-arrow"></div>' + data[i].message + '</div></div></div>';
             $(".aui-chat").append(html);
         }
     }
