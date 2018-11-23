@@ -129,8 +129,8 @@
     var send_img = './Aui/image/demo2.png';
     var send_id = 1; //发送者uid
     var receive_id = 2; //接收者uid
-    var exampleSocket = new WebSocket("ws://127.0.0.1:9502"); //建立连接
-    //var exampleSocket = new WebSocket("ws://119.23.72.99:9502"); //建立连接
+    //var exampleSocket = new WebSocket("ws://127.0.0.1:9502"); //建立连接
+    var exampleSocket = new WebSocket("ws://119.23.72.99:9502"); //建立连接
     $(function () {
         exampleSocket.onopen = function (event) {
             initData(); //加载历史记录
