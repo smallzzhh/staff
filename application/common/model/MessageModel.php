@@ -44,7 +44,7 @@ class MessageModel extends BaseModel
             $list = $this->where($where)->page(1,10)->order('id desc')->select();
             $count = count($list)-1;
             foreach ($list as $k=>$v){
-                $list[$k] = $v;
+                $list[$count] = $v;
                 $count --;
             }
         }catch (Exception $exception){

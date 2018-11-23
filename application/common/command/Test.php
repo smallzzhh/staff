@@ -30,9 +30,11 @@ class Test extends Command
         $list = $me->where($where)->page(1,10)->order('id desc')->select();
         $count = count($list)-1;
         foreach ($list as $k=>$v){
-            $list[$k] = $v;
+            $list1[$count] = $v;
             $count --;
         }
+
+
         $output->writeln("TestCommand:");
     }
 }
