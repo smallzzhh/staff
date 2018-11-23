@@ -1,0 +1,183 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
+    <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
+    <title>AUI快速完成布局</title>
+    <link rel="stylesheet" type="text/css" href="./Aui/css/aui.css" />
+    <script src="./Hui/lib/jquery/1.9.1/jquery.js"></script>
+    <script src="https://cdn.bootcss.com/jquery-json/2.6.0/jquery.json.min.js"></script>
+</head>
+<body>
+<section class="aui-chat">
+    <!--<div class="aui-chat-header">2016年7月13日</div>-->
+    <div class="aui-chat-item aui-chat-left">
+        <div class="aui-chat-media">
+            <img src="./Aui/image/demo2.png" />
+        </div>
+        <div class="aui-chat-inner">
+            <div class="aui-chat-name">AUI <span class="aui-label aui-label-warning">2.0</span></div>
+            <div class="aui-chat-content">
+                <div class="aui-chat-arrow"></div>
+                Hello AUI 2.0!
+            </div>
+            <div class="aui-chat-status aui-chat-status-refresh">
+                <i class="aui-iconfont aui-icon-correct aui-text-success"></i>
+            </div>
+        </div>
+    </div>
+    <div class="aui-chat-item aui-chat-right">
+        <div class="aui-chat-media">
+            <img src="./Aui/image/liulangnan.png" />
+        </div>
+        <div class="aui-chat-inner">
+            <div class="aui-chat-name">流浪男</div>
+            <div class="aui-chat-content">
+                <div class="aui-chat-arrow"></div>
+                你好！
+            </div>
+            <div class="aui-chat-status">
+                <i class="aui-iconfont aui-icon-info aui-text-danger"></i>
+            </div>
+        </div>
+    </div>
+    <div class="aui-chat-item aui-chat-left">
+        <div class="aui-chat-media">
+            <img src="./Aui/image/demo2.png" />
+        </div>
+        <div class="aui-chat-inner">
+            <div class="aui-chat-name">AUI <span class="aui-label aui-label-warning">2.0</span></div>
+            <div class="aui-chat-content">
+                <div class="aui-chat-arrow"></div>
+                <img src="./Aui/image/l1.png" />
+            </div>
+        </div>
+    </div>
+    <div class="aui-chat-item aui-chat-right">
+        <div class="aui-chat-media">
+            <img src="./Aui/image/liulangnan.png" />
+        </div>
+        <div class="aui-chat-inner">
+            <div class="aui-chat-name">流浪男</div>
+            <div class="aui-chat-content">
+                <div class="aui-chat-arrow"></div>
+                以前拍摄的牛背山星空以前拍摄的牛背山星空以前拍摄的牛背山星空以前拍摄的牛背山星空以前拍摄的牛背山星空以前拍摄的牛背山星空
+            </div>
+        </div>
+    </div>
+    <div class="aui-chat-item aui-chat-left">
+        <div class="aui-chat-media">
+            <img src="./Aui/image/demo2.png" />
+        </div>
+        <div class="aui-chat-inner">
+            <div class="aui-chat-name">AUI <span class="aui-label aui-label-warning">2.0</span></div>
+            <div class="aui-chat-content">
+                <div class="aui-chat-arrow"></div>
+                <img src="./Aui/image/l2.png" />
+            </div>
+        </div>
+    </div>
+    <div class="aui-chat-item aui-chat-left">
+        <div class="aui-chat-media">
+            <img src="./Aui/image/demo2.png" />
+        </div>
+        <div class="aui-chat-inner">
+            <div class="aui-chat-name">AUI <span class="aui-label aui-label-warning">2.0</span></div>
+            <div class="aui-chat-content">
+                <div class="aui-chat-arrow"></div>
+                <img src="./Aui/image/l2.png" />
+            </div>
+        </div>
+    </div>
+    <div class="aui-chat-item aui-chat-left">
+        <div class="aui-chat-media">
+            <img src="./Aui/image/demo2.png" />
+        </div>
+        <div class="aui-chat-inner">
+            <div class="aui-chat-name">AUI <span class="aui-label aui-label-warning">2.0</span></div>
+            <div class="aui-chat-content">
+                <div class="aui-chat-arrow"></div>
+                <img src="./Aui/image/l2.png" />
+            </div>
+        </div>
+    </div>
+
+</section>
+<footer class="aui-bar aui-bar-tab" id="footer">
+    <div class="aui-bar-tab-item aui-padded-l-15 aui-padded-r-15" tapmode style="width: auto;">
+        <div class="search-input aui-font-size-14">
+            <input >
+            请输入评论内容
+        </div>
+    </div>
+    <div class="aui-bar-tab-item" tapmode style="width: 3.2rem;">
+        <div class="aui-btn aui-btn-info">发送</div>
+    </div>
+</footer>
+</body>
+<script type="text/javascript" src="./Aui/script/api.js" ></script>
+<script type="text/javascript">
+    var name = localStorage.setItem("key","value");
+
+    var send_name = 'smallzz';
+    var receive_name = '大傻逼';
+    var send_id = 1; //发送者uid
+    var receive_id = 2; //接收者uid
+    var exampleSocket = new WebSocket("ws://127.0.0.1:9502"); //建立连接
+    $(function () {
+        exampleSocket.onopen = function (event) {
+            initData(); //加载历史记录
+        };
+        exampleSocket.onmessage = function (event) {
+            console.log(event);
+            loadData($.parseJSON(event.data)); //导入消息记录，加载新的消息
+        }
+    });
+    function sendMsg() {
+        var pData = {
+            content: document.getElementById('content').value,
+            send_id: send_id,
+            receive_id: receive_id,
+        }
+        if(pData.content == ''){
+            alert("消息不能为空");
+            return;
+        }
+        exampleSocket.send($.toJSON(pData)); //发送消息
+        $('#content').val('');
+    }
+    function initData() {
+        var pData = {
+            send_id: send_id,
+            receive_id: receive_id,
+        }
+        console.log(pData);
+        exampleSocket.send($.toJSON(pData)); //获取消息记录，绑定fd
+    }
+    function loadData(data) {
+        var locs
+        var name = '';
+        var name2 = '';
+        for (var i = 0; i < data.length; i++) {
+            if(data[i].send_uid == 1){
+                name = send_name;
+            }else{
+                name = receive_name;
+            }
+            if(data[i].rece_uid == 1){
+                name2 = send_name;
+            }else{
+                name2 = receive_name;
+            }
+
+            var html = '<p>' + name + '>' + name2 + ':' + data[i].message + '</p>';
+            $("#history").append(html);
+        }
+    }
+    function closes() {
+        exampleSocket.close();
+    }
+
+</script>
+</html>

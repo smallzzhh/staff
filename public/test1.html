@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <script src="./Hui/lib/jquery/1.9.1/jquery.js"></script>
+    <script src="https://cdn.bootcss.com/jquery-json/2.6.0/jquery.json.min.js"></script>
+    <script type="text/javascript">
+        var send_name = 'smallzz';
+        var receive_name = '大傻逼';
+        var send_id = 1; //发送者uid
+        var receive_id = 2; //接收者uid
+        var exampleSocket = new WebSocket("ws://127.0.0.1:9502");
+        $(function () {
+            exampleSocket.onopen = function (event) {
+                initData(); //加载历史记录
+            };
+            exampleSocket.onmessage = function (event) {
+                console.log(event);
+                loadData($.parseJSON(event.data)); //导入消息记录，加载新的消息
+            }
+        });
+        function sendMsg() {
+            var pData = {
+                content: document.getElementById('content').value,
+                send_id: send_id,
+                receive_id: receive_id,
+            }
+            if(pData.content == ''){
+                alert("消息不能为空");
+                return;
+            }
+            exampleSocket.send($.toJSON(pData)); //发送消息
+            $('#content').val('');
+        }
+        function initData() {
+            var pData = {
+                send_id: send_id,
+                receive_id: receive_id,
+            }
+            console.log(pData);
+            exampleSocket.send($.toJSON(pData)); //获取消息记录，绑定fd
+        }
+        function loadData(data) {
+            var name = '';
+            var name2 = '';
+            for (var i = 0; i < data.length; i++) {
+                if(data[i].send_uid == 1){
+                    name = send_name;
+                }else{
+                    name = receive_name;
+                }
+                if(data[i].rece_uid == 1){
+                    name2 = send_name;
+                }else{
+                    name2 = receive_name;
+                }
+
+                var html = '<p>' + name + '>' + name2 + ':' + data[i].message + '</p>';
+                $("#history").append(html);
+            }
+        }
+        function closes() {
+            exampleSocket.close();
+        }
+    </script>
+</head>
+<body>
+<div id="history" style="border: 1px solid #ccc; width: 1000px; height: auto">
+
+
+
+</div>
+<input type="text" id="content">
+<button onclick="sendMsg()">发送</button>
+<button onclick="closes()">断开连接</button>
+</body>
+</html>
