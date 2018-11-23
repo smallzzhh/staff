@@ -35,7 +35,7 @@ class Chat extends Command
 
     protected function execute(Input $input, Output $output)
     {
-        $this->service = new \swoole_websocket_server("127.0.0.1", 9502);
+        $this->service = new \swoole_websocket_server("0.0.0.0", 9502);
         $this->service->set(array(
             'worker_num' => 8,
             'daemonize' => false,
