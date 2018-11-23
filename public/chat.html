@@ -125,6 +125,8 @@
 <script type="text/javascript">
     var send_name = '周政';
     var receive_name = '大傻逼';
+    var receive_img = './Aui/image/liulangnan.png';
+    var send_img = './Aui/image/demo2.png';
     var send_id = 1; //发送者uid
     var receive_id = 2; //接收者uid
     var exampleSocket = new WebSocket("ws://127.0.0.1:9502"); //建立连接
@@ -148,6 +150,9 @@
             return;
         }
         exampleSocket.send($.toJSON(pData)); //发送消息
+        var css = 'aui-chat-left';
+        var html = '<div class="aui-chat-item '+css+'"><div class="aui-chat-media"><img src="'+send_img+'" /></div><div class="aui-chat-inner"><div class="aui-chat-name">'+send_name+'</div><div class="aui-chat-content"><div class="aui-chat-arrow"></div>' + $('#message').val() + '</div></div></div>';
+        $(".aui-chat").append(html);
         $('#message').val('');
     }
     function initData() {
@@ -163,11 +168,11 @@
             if(data[i].send_uid == send_id){
                 var css = 'aui-chat-left';
                 var name = send_name;
-                var img = './Aui/image/demo2.png';
+                var img = send_img;
             }else{
                 var css = 'aui-chat-right';
                 var name = receive_name;
-                var img = './Aui/image/liulangnan.png';
+                var img = receive_img;
             }
             var html = '<div class="aui-chat-item '+css+'"><div class="aui-chat-media"><img src="'+img+'" /></div><div class="aui-chat-inner"><div class="aui-chat-name">'+name+'</div><div class="aui-chat-content"><div class="aui-chat-arrow"></div>' + data[i].message + '</div></div></div>';
             $(".aui-chat").append(html);
