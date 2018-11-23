@@ -29,7 +29,7 @@
         <entry file="file://$PROJECT_DIR$/application/common/model/MessageModel.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="259">
-              <caret line="43" column="50" selection-start-line="43" selection-start-column="50" selection-end-line="43" selection-end-column="50" />
+              <caret line="43" column="68" selection-start-line="43" selection-start-column="68" selection-end-line="43" selection-end-column="68" />
               <folding>
                 <element signature="e#123#136#0#PHP" expanded="true" />
               </folding>
@@ -271,12 +271,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1542939837574</updated>
-      <workItem from="1542939838969" duration="14340000" />
+      <workItem from="1542939838969" duration="14432000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14340000" />
+    <option name="totallyTimeSpent" value="14432000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
@@ -526,7 +526,7 @@
     <entry file="file://$PROJECT_DIR$/application/common/model/MessageModel.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="259">
-          <caret line="43" column="50" selection-start-line="43" selection-start-column="50" selection-end-line="43" selection-end-column="50" />
+          <caret line="43" column="68" selection-start-line="43" selection-start-column="68" selection-end-line="43" selection-end-column="68" />
           <folding>
             <element signature="e#123#136#0#PHP" expanded="true" />
           </folding>
