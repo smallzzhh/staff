@@ -11,6 +11,7 @@ namespace app\common\command;
 
 use app\common\model\MessageModel;
 use app\common\model\SocketModel;
+use service\RedisService;
 use think\console\Command;
 use think\console\Input;
 use think\console\Output;
@@ -21,6 +22,8 @@ class Chat extends Command
     private $service;
     private $socketModel = null;
     private $messageModel = null;
+    private $redis = null;
+    private $swoole_port = null;
     private static $fd = null;
     protected function configure()
     {
@@ -31,11 +34,13 @@ class Chat extends Command
         parent::__construct($name);
         $this->socketModel = new SocketModel();
         $this->messageModel = new MessageModel();
+        $this->redis = new RedisService();
+        $this->swoole_port = config('system.swoole_port');
     }
 
     protected function execute(Input $input, Output $output)
     {
-        $this->service = new \swoole_websocket_server("0.0.0.0", 9502);
+        $this->service = new \swoole_websocket_server("0.0.0.0", $this->swoole_port);
         $this->service->set(array(
             'worker_num' => 8,
             'daemonize' => false,
