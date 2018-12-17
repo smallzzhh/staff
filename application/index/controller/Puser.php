@@ -17,6 +17,7 @@ class Puser extends Controller
     public function index(){
 
         return view();
+
     }
     public function pu(){
         $param = $this->request->param();

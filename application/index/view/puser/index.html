@@ -5,8 +5,8 @@
     <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0"/>
     <meta name="format-detection" content="telephone=no,email=no,date=no,address=no">
     <title>来自外星人的打招呼</title>
-    <link rel="stylesheet" type="text/css" href="./Aui/css/aui.css" />
-    <script src="./Hui/lib/jquery/1.9.1/jquery.js"></script>
+    <link rel="stylesheet" type="text/css" href="/Aui/css/aui.css" />
+    <script src="/Hui/lib/jquery/1.9.1/jquery.js"></script>
     <script src="https://cdn.bootcss.com/jquery-json/2.6.0/jquery.json.min.js"></script>
 </head>
 <body>
@@ -27,7 +27,7 @@
 
     function getLocation(){
         $.ajax({
-            url:"{:url('Puser/index')}",
+            url:"{:url('Puser/pu')}",
             data:{'lon':'112.11','lat':'79.1212'},
             async:false
         });
