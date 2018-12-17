@@ -24,8 +24,8 @@ class Puser extends Controller
         $puser = new CoordinatesModel();
         $data = [
             'phone'=>'13260324342',
-            'lon'=>'78.123213',
-            'lat'=>'132.603243',
+            'lon'=>$param['lon'],
+            'lat'=>$param['lat'],
         ];
         $puser->save($data);
     }
