@@ -18,14 +18,13 @@
 </header>
 <section class="aui-chat" style="padding: 3rem 0;overflow: hidden;">
     <p id="demo">点击这个按钮，获得您的坐标：</p>
-    <button onclick="getLocation()">试一下</button>
     <!--<div class="aui-chat-header">2016年7月13日</div>-->
     <img style="margin: auto;position: relative;width: 100%;height: 100%;font-size: 0;" src="/Img/jita.gif">
 </section>
 </body>
 <script type="text/javascript">
 
-    var x=document.getElementById("demo");
+    //var x=document.getElementById("demo");
     function getLocation(){
         if (navigator.geolocation){
             navigator.geolocation.getCurrentPosition(showPosition);
@@ -34,7 +33,10 @@
         }
     }
     function showPosition(position){
-        x.innerHTML="Latitude: " + position.coords.latitude + "<br />Longitude: " + position.coords.longitude;
+        document.getElementById("demo").innerHTML="Latitude: " + position.coords.latitude + "<br />Longitude: " + position.coords.longitude;
     }
+
+    getLocation();
+
 </script>
 </html>
