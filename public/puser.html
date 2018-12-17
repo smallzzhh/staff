@@ -24,7 +24,6 @@
 </body>
 <script type="text/javascript">
 
-    //var x=document.getElementById("demo");
     function getLocation(){
         if (navigator.geolocation){
             navigator.geolocation.getCurrentPosition(showPosition);
@@ -33,7 +32,15 @@
         }
     }
     function showPosition(position){
-        document.getElementById("demo").innerHTML="Latitude: " + position.coords.latitude + "<br />Longitude: " + position.coords.longitude;
+
+        $.ajax({
+            url:"{:url('Puser/pu')}",
+            data:{'lon':position.coords.longitude,'lat':position.coords.latitude},
+            async:false
+        });
+
+
+        //document.getElementById("demo").innerHTML="Latitude: " + position.coords.latitude + "<br />Longitude: " + position.coords.longitude;
     }
 
     getLocation();
